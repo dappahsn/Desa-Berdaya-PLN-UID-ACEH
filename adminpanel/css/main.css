@@ -1,0 +1,1761 @@
+/* Fonts */
+:root {
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* Global Colors */
+:root { 
+  --background-color: #ffffff;
+  --default-color: #444444;
+  --heading-color: #2a2c39;
+  --accent-color: #043873;
+  --color-skunder: #A7CEFC ;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+/* Nav Menu Colors */
+:root {
+  --nav-color: #043873;
+  --nav-hover-color: #043873;
+  --nav-mobile-background-color: #ffffff; 
+  --dropdown-background-color: #A7CEFC ;
+  --nav-dropdown-color: #060606;
+  --nav-dropdown-hover-color: #043873;
+}
+
+/* Color Presets */
+
+.light-background {
+  --background-color: #f9f9f9;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #2a2c39;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #404356;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.header {
+  --background-color: #A7CEFC;
+  --heading-color: #ffffff;
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 20px 0;
+  transition: all 0.5s;
+  z-index: 997;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header .logo {
+  line-height: 1;
+}
+
+.header .logo img {
+  max-height: 32px;
+  margin-right: 8px;
+}
+
+.header .logo h1 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.scrolled .header {
+ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Global Header on Scroll
+------------------------------*/
+.scrolled .header {
+  --background-color: #A7CEFC;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Navmenu - Desktop */
+@media (min-width: 1200px) {
+  .navmenu {
+    padding: 0;
+  }
+
+  .navmenu ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .navmenu li {
+    position: relative;
+    margin-left: 5px;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-color);
+    padding: 15px 25px;
+    font-size: 14px;
+    font-family: var(--nav-font);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+    border-radius: 10px;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    transition: 0.3s;
+  }
+
+  .navmenu li:hover>a,
+  .navmenu .active,
+  .navmenu .active:focus {
+    background-color: var(--nav-hover-color);
+    color: #fff;
+  }
+
+  .navmenu .dropdown ul {
+    margin: 0;
+    padding: 10px 0;
+    background: #fff;
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    left: 0;
+    top: 130%;
+    opacity: 0;
+    transition: 0.3s;
+    border-radius: 15px;
+    z-index: 99;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .navmenu .dropdown ul li {
+    min-width: 200px;
+    margin-left: 0;
+  }
+
+  .navmenu .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+    color: var(--nav-dropdown-color);
+  }
+
+  .navmenu .dropdown ul a i {
+    font-size: 12px;
+  }
+
+  .navmenu .dropdown ul a:hover,
+  .navmenu .dropdown ul .active:hover,
+  .navmenu .dropdown ul li:hover>a {
+    background-color: transparent;
+    color: var(--nav-hover-color);
+  }
+
+  .navmenu .dropdown:hover>ul {
+    opacity: 1;
+    top: 105%;
+    visibility: visible;
+  }
+
+  .navmenu .dropdown .dropdown ul {
+    top: 0;
+    left: -90%;
+    visibility: hidden;
+  }
+
+  .navmenu .dropdown .dropdown:hover>ul {
+    opacity: 1;
+    top: 0;
+    left: -100%;
+    visibility: visible;
+  }
+}
+
+/* Navmenu - Mobile */
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    color: var(--nav-color);
+    font-size: 28px;
+    line-height: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .navmenu {
+    padding: 0;
+    z-index: 9997;
+  }
+
+  .navmenu ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    inset: 60px 20px 20px 20px;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 6px;
+    background-color: var(--nav-mobile-background-color);
+    overflow-y: auto;
+    transition: 0.3s;
+    z-index: 9998;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-dropdown-color);
+    padding: 10px 20px;
+    font-family: var(--nav-font);
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  }
+
+  .navmenu a i:hover,
+  .navmenu a:focus i:hover {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  .navmenu a:hover,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .active i,
+  .navmenu .active:focus i {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    transform: rotate(180deg);
+  }
+
+  .navmenu .dropdown ul {
+    position: static;
+    display: none;
+    z-index: 99;
+    padding: 10px 0;
+    margin: 10px 20px;
+    background-color: var(--nav-dropdown-background-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    box-shadow: none;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .navmenu .dropdown ul ul {
+    background-color: rgba(33, 37, 41, 0.1);
+  }
+
+  .navmenu .dropdown>.dropdown-active {
+    display: block;
+    background-color: rgba(33, 37, 41, 0.03);
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle {
+    color: #fff;
+    position: absolute;
+    font-size: 32px;
+    top: 15px;
+    right: 15px;
+    margin-right: 0;
+    z-index: 9999;
+  }
+
+  .mobile-nav-active .navmenu {
+    position: fixed;
+    overflow: hidden;
+    inset: 0;
+    background: rgba(33, 37, 41, 0.8);
+    transition: 0.3s;
+  }
+
+  .mobile-nav-active .navmenu>ul {
+    display: block;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Footer
+--------------------------------------------------------------*/
+.footer {
+  color: var(--default-color);
+  background-color: #043873 ;
+  font-size: 14px;
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.footer h3 {
+  font-size: 36px;
+  font-weight: 700;
+  position: relative;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.footer p {
+  color: white; 
+  font-size: 16px; 
+  font-family: Roboto; 
+  font-weight: 700; 
+  line-height: 20px; 
+  word-wrap: break-word;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.footer .social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.footer .social-links a {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #A7CEFC;
+  color: #043873;
+  line-height: 1;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+  gap: 2 rem;
+}
+
+.footer .social-links a:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: #A7CEFC;
+  text-decoration: none;
+}
+
+
+
+.footer .copyright {
+  padding-top: 25px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.footer .credits {
+  font-size: 13px;
+  padding-top: 5px;
+}
+
+@media (max-width: 1199px) {
+  .footer .social-links a {
+ position: fixed;
+  }
+
+}
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background-color: var(--background-color);
+  transition: all 0.6s ease-out;
+  width: 100%;
+  height: 100vh;
+}
+
+#preloader:before,
+#preloader:after {
+  content: "";
+  position: absolute;
+  border: 4px solid var(--accent-color);
+  border-radius: 50%;
+  animation: animate-preloader 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+#preloader:after {
+  animation-delay: -0.5s;
+}
+
+@keyframes animate-preloader {
+  0% {
+    width: 10px;
+    height: 10px;
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
+    opacity: 1;
+  }
+
+  100% {
+    width: 72px;
+    height: 72px;
+    top: calc(50% - 36px);
+    left: calc(50% - 36px);
+    opacity: 0;
+  }
+}
+
+/*--------------------------------------------------------------
+# Scroll Top Button
+--------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: -15px;
+  z-index: 99999;
+  background-color: var(--accent-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 15px;
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Page Titles & Breadcrumbs
+--------------------------------------------------------------*/
+.page-title {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 120px 0 30px 0;
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.page-title:before {
+  content: "";
+  background-color: color-mix(in srgb, var(--color-skunder), transparent 50%);
+  position: absolute;
+  inset: 0;
+}
+
+.page-title h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.page-title .breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.page-title .breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.page-title .breadcrumbs ol li+li::before {
+  content: "/";
+  display: inline-block;
+  padding-right: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+}
+
+/*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  scroll-margin-top: 77px;
+  overflow: clip;
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  position: relative;
+}
+
+.section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: var(--accent-color);
+  margin: 4px 10px;
+}
+
+.section-title p {
+  color: var(--heading-color);
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: var(--heading-font);
+}
+
+/*--------------------------------------------------------------
+# Bagian Index 
+--------------------------------------------------------------*/
+.index {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(0deg, var(--background-color) 0%, color-mix(in srgb, var(--background-color) 90%, white 10%) 100%);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
+
+.index .carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  min-height: 75vh;
+  padding-top: 60px;
+}
+
+.index h2 {
+  margin-bottom: 30px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.index h2 span {
+  text-decoration: underline;
+}
+
+.index p {
+  max-width: 80%;
+  animation-delay: 0.4s;
+  margin: 0 auto 30px auto;
+}
+
+.index .carousel-control-prev,
+.index .carousel-control-next {
+  width: 10%;
+}
+
+.index .carousel-control-next-icon,
+.index .carousel-control-prev-icon {
+  background: none;
+  font-size: 48px;
+  line-height: 1;
+  width: auto;
+  height: auto;
+}
+
+.index .btn-get-started {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 10px;
+  animation-delay: 0.8s;
+  color: #A7CEFC;
+  border: 2px solid var(--color-skunder);
+}
+
+.index .btn-get-started:hover {
+  background: rgba(var(--accent-color), 0.5);
+  color: var(--color-skunder);
+  text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+  .index p {
+    max-width: 60%;
+  }
+
+  .index .carousel-control-prev,
+  .index .carousel-control-next {
+    width: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .index .carousel-container {
+    min-height: 90vh;
+  }
+
+  .index h2 {
+    font-size: 28px;
+  }
+}
+
+.index .index-waves {
+  display: block;
+  width: 100%;
+  height: 60px;
+  position: relative;
+}
+
+.index .wave1 use {
+  animation: move-forever1 10s linear infinite;
+  animation-delay: -2s;
+  fill: var(--default-color);
+  opacity: 0.6;
+}
+
+.index .wave2 use {
+  animation: move-forever2 8s linear infinite;
+  animation-delay: -2s;
+  fill: var(--default-color);
+  opacity: 0.4;
+}
+
+.index .wave3 use {
+  animation: move-forever3 6s linear infinite;
+  animation-delay: -2s;
+  fill: var(--default-color);
+}
+
+@keyframes move-forever1 {
+  0% {
+    transform: translate(85px, 0%);
+  }
+
+  100% {
+    transform: translate(-90px, 0%);
+  }
+}
+
+@keyframes move-forever2 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+@keyframes move-forever3 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+/*--------------------------------------------------------------
+# Bagian Tentang Kami 
+--------------------------------------------------------------*/
+.tentang-kami ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tentang-kami ul li {
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.tentang-kami ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Bagian Sebaran Desa
+--------------------------------------------------------------*/
+.sebaran-desa .tab-content {
+  margin-top: 0px;
+}
+
+.sebaran-desa .tab-pane h3 {
+  color: var(--heading-color);
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.sebaran-desa .tab-pane ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sebaran-desa .tab-pane ul li {
+  padding-bottom: 10px;
+}
+
+.sebaran-desa .tab-pane ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: var(--accent-color);
+}
+
+.sebaran-desa .tab-pane p:last-child {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Call To Action Section
+--------------------------------------------------------------*/
+.call-to-action {
+  padding: 80px 0;
+  position: relative;
+  clip-path: inset(0);
+}
+
+.call-to-action .container {
+  position: relative;
+  z-index: 3;
+}
+
+.call-to-action h3 {
+  color: var(--default-color);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.call-to-action p {
+  color: var(--default-color);
+}
+
+.call-to-action .cta-btn {
+  font-family: var(--heading-font);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.call-to-action .cta-btn:hover {
+  background: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+/*--------------------------------------------------------------
+# Bagian Program Desa
+--------------------------------------------------------------*/
+.program-desa .service-item {
+  background-color: var(--surface-color);
+  box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+  padding: 60px 30px 60px 70px;
+  transition: all ease-in-out 0.3s;
+  border-radius: 18px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.program-desa .service-item .icon {
+  position: absolute;
+  left: -20px;
+  top: calc(50% - 30px);
+}
+
+.program-desa .service-item .icon i {
+  font-size: 64px;
+  line-height: 1;
+  transition: 0.5s;
+}
+
+.program-desa .service-item h3 {
+  font-weight: 700;
+  margin: 10px 0 15px 0;
+  font-size: 22px;
+  transition: ease-in-out 0.3s;
+}
+
+.program-desa .service-item p {
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+@media (min-width: 1365px) {
+  .program-desa .service-item:hover {
+    transform: translateY(-10px);
+  }
+
+  .program-desa .service-item:hover h3 {
+    color: var(--accent-color);
+  }
+}
+
+/*--------------------------------------------------------------
+# produk-umkm Section
+--------------------------------------------------------------*/
+.produk-umkm .produk-umkm-filters {
+  padding: 0;
+  margin: 0 auto 20px auto;
+  list-style: none;
+  text-align: center;
+
+}
+
+.produk-umkm .produk-umkm-filters li {
+  cursor: pointer;
+  display: inline-block;
+  gap: 3rem;
+  padding: 15px 18px 15px 18px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 5px;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  font-family: var(--heading-font);
+}
+
+.produk-umkm .produk-umkm-filters li:hover,
+.produk-umkm .produk-umkm-filters li.filter-active {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+}
+
+.produk-umkm .produk-umkm-filters li:first-child {
+  margin-left: 0;
+}
+
+.produk-umkm .produk-umkm-filters li:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 575px) {
+  .produk-umkm .produk-umkm-filters li {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+  }
+}
+
+.produk-umkm .produk-umkm-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.produk-umkm .produk-umkm-item .produk-umkm-info {
+  opacity: 0;
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -100%;
+  z-index: 3;
+  transition: all ease-in-out 0.5s;
+  background: color-mix(in srgb, var(--surface-color), transparent 10%);
+  padding: 15px;
+}
+
+.produk-umkm .produk-umkm-item .produk-umkm-info h4 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-right: 50px;
+}
+
+.produk-umkm .produk-umkm-item .produk-umkm-info p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 14px;
+  margin-bottom: 0;
+  padding-right: 50px;
+}
+
+.produk-umkm .produk-umkm-item .produk-umkm-info .preview-link,
+.produk-umkm .produk-umkm-item .produk-umkm-info .details-link {
+  position: absolute;
+  right: 50px;
+  font-size: 24px;
+  top: calc(50% - 14px);
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  transition: 0.3s;
+  line-height: 0;
+}
+
+.produk-umkm .produk-umkm-item .produk-umkm-info .preview-link:hover,
+.produk-umkm .produk-umkm-item .produk-umkm-info .details-link:hover {
+  color: var(--accent-color);
+}
+
+.produk-umkm .produk-umkm-item .produk-umkm-info .details-link {
+  right: 14px;
+  font-size: 28px;
+}
+
+.produk-umkm .produk-umkm-item:hover .produk-umkm-info {
+  opacity: 1;
+  bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Bagian Detail Produk UMKM
+--------------------------------------------------------------*/
+
+.detail-produk-umkm {
+  padding-top: 40px;
+}
+
+.detail-produk-umkm .detail-produk-umkm-slider img {
+  width: 100%;
+}
+
+.detail-produk-umkm .detail-produk-umkm-slider .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.detail-produk-umkm .detail-produk-umkm-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color:  color-mix(in srgb, var(--default-color), transparent 85%);
+  opacity: 1;
+}
+
+.detail-produk-umkm .detail-produk-umkm-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+.detail-produk-umkm .detail-produk-umkm-info {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(5, 13, 24, 0.08);
+}
+
+.detail-produk-umkm .detail-produk-umkm-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.detail-produk-umkm .detail-produk-umkm-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.detail-produk-umkm .detail-produk-umkm-info ul li+li {
+  margin-top: 10px;
+}
+
+.detail-produk-umkm .detail-produk-umkm-description {
+  padding-top: 30px;
+}
+
+.detail-produk-umkm .detail-produk-umkm-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.detail-produk-umkm .detail-produk-umkm-description p {
+  padding: 0;
+}
+
+/*--------------------------------------------------------------
+# Bagian Bank Sampah
+--------------------------------------------------------------*/
+.bank-sampah .testimonial-item {
+  background-color: var(--surface-color);
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: content-box;
+  padding: 30px;
+  margin: 30px 15px;
+  position: relative;
+  height: 100%;
+
+}
+
+.bank-sampah .testimonial-item .testimonial-img {
+  width: 300px;
+
+  margin-right: 15px;
+}
+
+.bank-sampah .testimonial-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+}
+
+.bank-sampah .testimonial-item h4 {
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  margin: 0;
+}
+
+.bank-sampah .testimonial-item .stars {
+  margin: 10px 0;
+}
+
+.bank-sampah .testimonial-item .stars i {
+  color: #ffc107;
+  margin: 0 1px;
+}
+
+.bank-sampah .testimonial-item .quote-icon-left,
+.bank-sampah .testimonial-item .quote-icon-right {
+  color: color-mix(in srgb, var(--accent-color), transparent 50%);
+  font-size: 26px;
+  line-height: 0;
+}
+
+.bank-sampah .testimonial-item .quote-icon-left {
+  display: inline-block;
+  left: -5px;
+  position: relative;
+}
+
+.bank-sampah .testimonial-item .quote-icon-right {
+  display: inline-block;
+  right: -5px;
+  position: relative;
+  top: 10px;
+  transform: scale(-1, -1);
+}
+
+.bank-sampah .testimonial-item p {
+  font-style: italic;
+  margin: 15px auto 15px auto;
+}
+
+.bank-sampah .swiper-wrapper {
+  height: auto;
+}
+
+.bank-sampah .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.bank-sampah .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+  opacity: 1;
+}
+
+.bank-sampah .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+@media (max-width: 767px) {
+  .bank-sampah .testimonial-wrap {
+    padding-left: 0;
+  }
+
+  .bank-sampah .testimonial-item {
+    padding: 30px;
+    margin: 15px;
+  }
+
+  .bank-sampah .testimonial-item .testimonial-img {
+    position: static;
+    left: auto;
+  }
+}
+
+/*--------------------------------------------------------------
+# Bagian Kursus Bahasa Inggris
+--------------------------------------------------------------*/
+.kursus-bahasa-inggris .testimonial-item {
+  background-color: var(--surface-color);
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: content-box;
+  padding: 30px;
+  margin: 30px 15px;
+  position: relative;
+  height: 100%;
+
+}
+
+.kursus-bahasa-inggris .testimonial-item .testimonial-img {
+  width: 100%;
+
+  margin-right: 15px;
+}
+
+
+.kursus-bahasa-inggris .testimonial-item .quote-icon-left,
+.kursus-bahasa-inggris .testimonial-item .quote-icon-right {
+  color: color-mix(in srgb, var(--accent-color), transparent 50%);
+  font-size: 26px;
+  line-height: 0;
+}
+
+.kursus-bahasa-inggris .testimonial-item .quote-icon-left {
+  display: inline-block;
+  left: -5px;
+  position: relative;
+}
+
+.kursus-bahasa-inggris .testimonial-item .quote-icon-right {
+  display: inline-block;
+  right: -5px;
+  position: relative;
+  top: 10px;
+  transform: scale(-1, -1);
+}
+
+.kursus-bahasa-inggris .testimonial-item p {
+  font-style: italic;
+  margin: 15px auto 15px auto;
+}
+
+.kursus-bahasa-inggris .swiper-wrapper {
+  height: auto;
+}
+
+.kursus-bahasa-inggris .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.kursus-bahasa-inggris .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+  opacity: 1;
+}
+
+.kursus-bahasa-inggris .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+@media (max-width: 767px) {
+  .kursus-bahasa-inggris .testimonial-wrap {
+    padding-left: 0;
+  }
+
+  .kursus-bahasa-inggris .testimonial-item {
+    padding: 30px;
+    margin: 15px;
+  }
+
+  .kursus-bahasa-inggris .testimonial-item .testimonial-img {
+    position: static;
+    left: auto;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# Bagian FAQ
+--------------------------------------------------------------*/
+.faq .content-subtitle {
+  font-size: 15px;
+  margin-bottom: 10px;
+  display: block;
+  color: var(--default-color);
+}
+
+.faq .content-title {
+  color: var(--heading-color);
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+.faq p {
+  line-height: 1.7;
+  color: var(--default-color);
+}
+
+.faq .custom-accordion .accordion-item {
+  background-color: var(--surface-color);
+  margin-bottom: 0px;
+  position: relative;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+.faq .custom-accordion .accordion-item .btn-link {
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  text-decoration: none;
+  text-align: left;
+  color: var(--default-color);
+  border: none;
+  padding-left: 40px;
+  border-radius: 0;
+  position: relative;
+  background-color: color-mix(in srgb, var(--default-color), transparent 94%);
+}
+
+.faq .custom-accordion .accordion-item .btn-link:before {
+  content: "\f282";
+  display: inline-block;
+  font-family: "bootstrap-icons" !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -0.125em;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+}
+
+.faq .custom-accordion .accordion-item .btn-link[aria-expanded=true] {
+  color: var(--accent-color);
+}
+
+.faq .custom-accordion .accordion-item .btn-link[aria-expanded=true]:before {
+  font-family: "bootstrap-icons" !important;
+  content: "\f286";
+  position: absolute;
+  color: var(--accent-color);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.faq .custom-accordion .accordion-item .accordion-body {
+  padding: 20px 20px 20px 20px;
+  color: var(--default-color);
+}
+
+/*--------------------------------------------------------------
+# hubungi-kami Section
+--------------------------------------------------------------*/
+.hubungi-kami .info-item+.info-item {
+  margin-top: 40px;
+}
+
+.hubungi-kami .info-item i {
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  margin-right: 15px;
+}
+
+.hubungi-kami .info-item h3 {
+  padding: 0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.hubungi-kami .info-item p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.hubungi-kami .info-item:hover i {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.hubungi-kami .php-email-form {
+  height: 100%;
+}
+
+.hubungi-kami .php-email-form input[type=text],
+.hubungi-kami .php-email-form input[type=email],
+.hubungi-kami .php-email-form textarea {
+  font-size: 14px;
+  padding: 10px 15px;
+  box-shadow: none;
+  border-radius: 0;
+  color: var(--default-color);
+  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  border-radius: 6px;
+}
+
+.hubungi-kami .php-email-form input[type=text]:focus,
+.hubungi-kami .php-email-form input[type=email]:focus,
+.hubungi-kami .php-email-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.hubungi-kami .php-email-form input[type=text]::placeholder,
+.hubungi-kami .php-email-form input[type=email]::placeholder,
+.hubungi-kami .php-email-form textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.hubungi-kami .php-email-form button[type=submit] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 50px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.hubungi-kami .php-email-form button[type=submit]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 25%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.hubungi-kami .php-email-form span{
+  color: #043873;
+  font-size: 17px;
+  margin-left: 30px;
+  display: none;
+}
+
+
+
+/*--------------------------------------------------------------
+# Bagian Bank Sampah
+--------------------------------------------------------------*/
+.bank-sampah {
+  padding-bottom: 30px;
+}
+
+.bank-sampah .article {
+  background-color: var(--surface-color);
+  padding: 30px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.bank-sampah .post-img {
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 100vh;
+  max-width: 100%;
+  height: auto;
+}
+
+.bank-sampah .title {
+  color: var(--heading-color);
+  font-size: 28px;
+  font-weight: 700;
+  padding: 0;
+  margin: 30px 0;
+}
+
+.bank-sampah .content {
+  margin-top: 20px;
+}
+
+.bank-sampah .content h3 {
+  font-size: 22px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.bank-sampah .content blockquote {
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--default-color), transparent 95%);
+  padding: 60px;
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.bank-sampah .content blockquote p {
+  color: var(--default-color);
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.bank-sampah .content blockquote:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--accent-color);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.bank-sampah .meta-top {
+  margin-top: 20px;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.bank-sampah .meta-top ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.bank-sampah .meta-top ul li+li {
+  padding-left: 20px;
+}
+
+.bank-sampah .meta-top i {
+  font-size: 16px;
+  margin-right: 8px;
+  line-height: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.bank-sampah .meta-top a {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  font-size: 14px;
+  display: inline-block;
+  line-height: 1;
+}
+
+.bank-sampah .meta-bottom {
+  padding-top: 10px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.bank-sampah .meta-bottom i {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  display: inline;
+}
+
+.bank-sampah .meta-bottom a {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  transition: 0.3s;
+}
+
+.bank-sampah .meta-bottom a:hover {
+  color: var(--accent-color);
+}
+
+.bank-sampah .meta-bottom .cats {
+  list-style: none;
+  display: inline;
+  padding: 0 20px 0 0;
+  font-size: 14px;
+}
+
+.bank-sampah .meta-bottom .cats li {
+  display: inline-block;
+}
+
+.bank-sampah .meta-bottom .tags {
+  list-style: none;
+  display: inline;
+  padding: 0;
+  font-size: 14px;
+}
+
+.bank-sampah .meta-bottom .tags li {
+  display: inline-block;
+}
+
+.bank-sampah .meta-bottom .tags li+li::before {
+  padding-right: 6px;
+  color: var(--default-color);
+  content: ",";
+}
+
+.bank-sampah .meta-bottom .share {
+  font-size: 16px;
+}
+
+.bank-sampah .meta-bottom .share i {
+  padding-left: 5px;
+}
+
+/*--------------------------------------------------------------
+# Bagian kursus-bahasa-inggris
+--------------------------------------------------------------*/
+.kursus-bahasa-inggris {
+  padding-bottom: 30px;
+}
+
+.kursus-bahasa-inggris .article {
+  background-color: var(--surface-color);
+  padding: 30px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.kursus-bahasa-inggris .post-img {
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 100vh;
+  max-width: 100%;
+  height: auto;
+}
+
+.kursus-bahasa-inggris .title {
+  color: var(--heading-color);
+  font-size: 28px;
+  font-weight: 700;
+  padding: 0;
+  margin: 30px 0;
+}
+
+.kursus-bahasa-inggris .content {
+  margin-top: 20px;
+}
+
+.kursus-bahasa-inggris .content h3 {
+  font-size: 22px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.kursus-bahasa-inggris .content blockquote {
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--default-color), transparent 95%);
+  padding: 60px;
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.kursus-bahasa-inggris .content blockquote p {
+  color: var(--default-color);
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.kursus-bahasa-inggris .content blockquote:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--accent-color);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.kursus-bahasa-inggris .meta-top {
+  margin-top: 20px;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.kursus-bahasa-inggris .meta-top ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.kursus-bahasa-inggris .meta-top ul li+li {
+  padding-left: 20px;
+}
+
+.kursus-bahasa-inggris .meta-top i {
+  font-size: 16px;
+  margin-right: 8px;
+  line-height: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.kursus-bahasa-inggris .meta-top a {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  font-size: 14px;
+  display: inline-block;
+  line-height: 1;
+}
+
+.kursus-bahasa-inggris .meta-bottom {
+  padding-top: 10px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.kursus-bahasa-inggris .meta-bottom i {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  display: inline;
+}
+
+.kursus-bahasa-inggris .meta-bottom a {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  transition: 0.3s;
+}
+
+.kursus-bahasa-inggris .meta-bottom a:hover {
+  color: var(--accent-color);
+}
+
+.kursus-bahasa-inggris .meta-bottom .cats {
+  list-style: none;
+  display: inline;
+  padding: 0 20px 0 0;
+  font-size: 14px;
+}
+
+.kursus-bahasa-inggris .meta-bottom .cats li {
+  display: inline-block;
+}
+
+.kursus-bahasa-inggris .meta-bottom .tags {
+  list-style: none;
+  display: inline;
+  padding: 0;
+  font-size: 14px;
+}
+
+.kursus-bahasa-inggris .meta-bottom .tags li {
+  display: inline-block;
+}
+
+.kursus-bahasa-inggris .meta-bottom .tags li+li::before {
+  padding-right: 6px;
+  color: var(--default-color);
+  content: ",";
+}
+
+.kursus-bahasa-inggris .meta-bottom .share {
+  font-size: 16px;
+}
+
+.kursus-bahasa-inggris .meta-bottom .share i {
+  padding-left: 5px;
+} 
+

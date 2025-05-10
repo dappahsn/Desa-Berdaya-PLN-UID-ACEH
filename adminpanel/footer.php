@@ -1,0 +1,134 @@
+<?php
+    require "session.php";
+
+    // Ambil nama halaman saat ini
+    $currentPage = basename($_SERVER['PHP_SELF']);
+
+    // Tentukan apakah submenu Program Desa aktif
+    $isProgramDesaActive = in_array($currentPage, ['program-desa.php', 'produk-umkm.php', 'bank-sampah.php', 'kursus-bahasa-inggris.php']);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>NAVBAR</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+
+  <link href="img/Logo-PLN-Peduli-Kecil.png" rel="icon">
+  <link href="img/Logo-PLN-Peduli.png" rel="apple-touch-icon">
+
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/aos/aos.css" rel="stylesheet">
+  <link href="vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  
+  <link href="css/main.css" rel="stylesheet">
+
+</head>
+
+<style>
+  #index-carousel {
+    position: relative;
+    height: 100vh;
+    margin: 0;
+    width: 100vw;
+  }
+  
+  .index-waves {
+    position: absolute;
+    bottom: 2;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    fill: #fff;
+    rotate: 360;
+  }
+  
+  #index-carousel .carousel-container {
+    position: relative;
+    /* z-index: 2; */
+    color: #fff;
+    text-align: center;
+    padding: 0 15px;
+  }
+  
+  #index-carousel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  </style>
+
+<body  style="overflow-x: hidden;" class="index-page">
+<footer id="footer" class="footer dark-background">
+    <div class="container">
+      <div style=" justify-content: center; align-items: center; display: flex; " class="d-flex">
+        <div class="container">
+          <h2 style="color: white; font-size: 28px; font-family: Roboto; font-weight: 700; line-height: 36px; word-wrap: break-word"> Hubungi Kami</h2>
+          <img src="img/pln-footer.svg" alt="">
+        </div>
+
+        <div class="container">
+          <div class="social-links" style="align-items: start; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <a href="https://www.youtube.com/@plnuidaceh"><i class="bi bi-youtube"></i></a>
+              <p style="margin: 0; color: white; font-size: 16px; font-family: Roboto; font-weight: 700; line-height: 20px; word-wrap: break-word">PLN UID Aceh</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 16px; font-family: Roboto; font-weight: 700; line-height: 20px; word-wrap: break-word;">
+              <a href="https://www.instagram.com/plnaceh/"><i class="bi bi-instagram"></i></a>
+              <p style="margin: 0;">plnaceh</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 16px; font-family: Roboto; font-weight: 700; line-height: 20px; word-wrap: break-word">
+              <a href="https://www.facebook.com/profile.php?id=100057241368943"><i class="bi bi-facebook"></i></a>
+              <p style="margin: 0;">PLN Wilayah Aceh</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+          <div class="container" style="padding-top: 1rem;">
+            <div class="copyright">
+              <span>Copyright © 2025</span> <strong class="px-1 sitename">PT PLN (Persero) Unit Induk Distribusi Aceh</strong> <span>All Rights Reserved</span>
+            </div>
+            <div class="credits">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/php-email-form/validate.js"></script>
+    <script src="vendor/aos/aos.js"></script>
+    <script src="vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+
+</body> 
+</html> 
