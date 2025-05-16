@@ -12,7 +12,7 @@ require "../koneksi.php";
     <link href="img/Logo-PLN-Peduli-Kecil.png" rel="icon">
     <link href="img/Logo-PLN-Peduli.png" rel="apple-touch-icon">
     <title>Login</title>
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 
@@ -74,11 +74,11 @@ require "../koneksi.php";
 </style>
 
 <body>
-    <img style="padding-top: 30vh" src="images/kota-background.png" class="bg-image" alt="background">
+    <img style="padding-top: 30vh" src="img/kota-background.png" class="bg-image" alt="background">
     <header style="position:absolute; top: 0; width: 100%; justify-content: center; align-items: center; gap: 20px; display: flex; background-color:#A7CEFC; padding-bottom:16px; padding-top:16px;">
-        <img style="width: 53px; height: 69.80px" src="images/bandaaceh-header.png">
-        <img style="width: 178px; height: 32px" src="images/bumn-header.png">
-        <img style="width: 73px; height: 56px" src="images/plnpeduli-header.png">
+        <img style="width: 53px; height: 69.80px" src="img/bandaaceh-header.png">
+        <img style="width: 178px; height: 32px" src="img/bumn-header.png">
+        <img style="width: 73px; height: 56px" src="img/plnpeduli-header.png">
         </div>
     </header>
     <div class="login-box p-2">

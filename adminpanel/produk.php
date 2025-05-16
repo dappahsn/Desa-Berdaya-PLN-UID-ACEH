@@ -20,12 +20,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="img/Logo-PLN-Peduli-Kecil.png" rel="icon">
+    <link href="img/Logo-PLN-Peduli.png" rel="apple-touch-icon">
     <title>Produk</title>
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+
 </head>
 
 <style>
@@ -36,71 +38,126 @@
     form div{
         margin-bottom: 10px;
     }
+  .form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  .form-label {
+    font-weight: 600;
+    color: #043873;
+  }
+  .form-control, .form-select {
+    border-radius: 10px;
+  }
+  .btn-primary {
+    background-color: #043873;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+  }
+  .btn-primary:hover {
+    background-color: #032f5b;
+  }
+
+  .table thead {
+        background-color: #043873;
+        color: white;
+    }
+
+    .table td, .table th {
+        vertical-align: middle;
+    }
+
+    .btn-info {
+        background-color: #032f5b;
+        border: none;
+    }
+
+    .btn-info:hover {
+        background-color: #032f5b;
+    }
+
+    .table-container {
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
 </style>
 
 <body>
     <?php require "navbar.php" ?>
 
-    <div class="container mt-5">
+    <div style="padding-top:5rem;" class="container mt-5">
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">
-                    <a href="../adminpanel/" class="no-decoration text-muted">
-                        <i class="fas fa-home"></i> Home
-                    </a> 
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                    <i class="fas fa-align-justify"></i> Produk
-                </li>
-            </ol>
-        </nav>
-    </div>
-
-    <!-- tambah produk -->
-    <div class="my-5 col-12 col-md-6">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="../adminpanel/" class="no-decoration text-muted">
+                            <i class="bi bi-house-door-fill"></i> Home
+                        </a> 
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="../adminpanel/produk.php" class="no-decoration text-muted">
+                            <i class="bi bi-box-seam-fill"></i> Produk
+                        </a> 
+                    </li>
+                </ol>
+            </nav>
+            <!-- tambah produk -->
+    <div class="form-container my-5 col-12 col-md-6">
         <h3 style="width: 100%; color: #043873; font-size: 40px; font-family: Roboto; font-weight: 900; line-height: 41px; word-wrap: break-word;">Tambah Produk</h3>
-
         <form action="" method="post" enctype="multipart/form-data">
-            <div>
-                <label for="nama">Nama</label>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
                 <input type="text" id="nama" name="nama" class="form-control" autocomplete="off" required>
             </div>
-            <div>
-                <label for="kategori">Kategori</label>
-                <select name="kategori" id="kategori" class="form-control" required>
+
+            <div class="mb-3">
+                <label for="kategori" class="form-label">Kategori</label>
+                <select name="kategori" id="kategori" class="form-select" required>
                     <option value="">Pilih Satu</option>
-                    <?php while($data=mysqli_fetch_array($queryKategori)){ ?>
-                        <option value="<?php echo $data['id'] ?>"><?php echo $data['nama']; ?></option>
-                    <?php } ?>
-                </select>
+                    <?php while($data = mysqli_fetch_array($queryKategori)){ ?>
+                     <option value="<?php echo $data['id'] ?>"><?php echo $data['nama']; ?></option>
+                     <?php } ?>
+               </select>
             </div>
-            <div>
-                <label for="harga">Harga</label>
+
+            <div class="mb-3">
+                <label for="harga" class="form-label">Harga</label>
                 <input type="number" class="form-control" name="harga" required>
             </div>
-            <div>
-                <label for="nomor_telepon">Nomor Telepon</label>
+
+            <div class="mb-3">
+                <label for="nomor_telepon" class="form-label">Nomor Telepon</label>
                 <input type="text" class="form-control" name="nomor_telepon" required>
             </div>
-            <div>
-                <label for="foto">Foto</label>
+
+            <div class="mb-3">
+                <label for="foto" class="form-label">Foto</label>
                 <input type="file" name="foto" id="foto" class="form-control">
             </div>
-            <div>
-                <label for="detail">Detail</label>
-                <textarea name="detail" id="detail" cols="30" rows="10" class="form-control"></textarea>
+
+            <div class="mb-3">
+                <label for="detail" class="form-label">Detail</label>
+                <textarea name="detail" id="detail" rows="5" class="form-control"></textarea>
             </div>
-            <div>
-                <label for="ketersediaan_stok">Ketersediaan Stok</label>
-                <select name="ketersediaan_stok" id="ketersediaan_stok" class="form-control">
-                    <option value="tersedia">tersedia</option>
-                    <option value="habis">habis</option>
-                </select> 
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
-            </div>
-        </form>
+
+        <div class="mb-4">
+            <label for="ketersediaan_stok" class="form-label">Ketersediaan Stok</label>
+            <select name="ketersediaan_stok" id="ketersediaan_stok" class="form-select">
+                <option value="tersedia">Tersedia</option>
+                <option value="habis">Habis</option>
+            </select>
+        </div>
+
+        <div class="text-end">
+            <button style="background-color: #032f5b;" type="submit" class="btn btn-primary" name="simpan">Simpan</button>
+        </div>
+    </form>
 
         <?php
             if(isset($_POST['simpan'])){
@@ -154,7 +211,7 @@
                         <div class="alert alert-primary mt-3" role="alert">
                             Produk berhasil tersimpan
                         </div>
-                        <meta http-equiv="refresh" content="2; url=produk.php" />
+                        <meta http-equiv="refresh" content="0; url=produk.php" />
         <?php
                     } else {
                         echo mysqli_error($con);
@@ -165,12 +222,12 @@
     </div>
 
     <div class="mt-3 mb-5"> 
-        <h2>List Produk</h2>
+      <h3 style="width: 100%; color: #043873; font-size: 40px; font-family: Roboto; font-weight: 900; line-height: 41px; word-wrap: break-word;">List Produk</h3>
 
         <div class="table-responsive mt-5">
-            <table class="table">
+            <table class="table table-bordered table-hover">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>No.</th>
                         <th>Nama</th>
                         <th>Kategori</th>
@@ -185,35 +242,44 @@
                         if($jumlahProduk==0){
                     ?>
                         <tr>
-                            <td colspan="7" class="text-center"> Data Produk Tidak Tersedia</td>
+                            <td colspan="7" class="text-center">Data Produk Tidak Tersedia</td>
                         </tr>
                     <?php
-                        } else {
+                }        else {
                             $jumlah = 1;
                             while($data=mysqli_fetch_array($query)){
                     ?>
                         <tr>
-                            <td><?php echo $jumlah; ?></td>
+                            <td class="text-center"><?php echo $jumlah; ?></td>
                             <td><?php echo $data['nama'];?></td>
                             <td><?php echo $data['nama_kategori'];?></td>
-                            <td><?php echo $data['harga'];?></td>
-                            <td><?php echo $data['ketersediaan_stok'];?></td>
+                            <td>Rp. <?php echo number_format($data['harga'], 0, ',', '.');?></td>
+                            <td class="text-center">
+                                <?php if($data['ketersediaan_stok'] == 'tersedia'): ?>
+                                    <span class="badge bg-success">Tersedia</span>
+                                <?php else: ?>
+                                    <span class="badge bg-danger">Habis</span>
+                                <?php endif; ?>
+                            </td>
                             <td><?php echo $data['nomor_telepon'];?></td>
-                            <td>
-                                <a style="background-color: #043873;" href="produk-detail.php?p=<?php echo $data['id']; ?>" class="btn btn-info">
-                                    <i style="color: white;" class="fas fa-search"></i>
+                            <td class="text-center">
+                                <a style="background-color: #032f5b;" href="produk-detail.php?p=<?php echo $data['id']; ?>" class="btn btn-info btn-sm" title="Lihat Detail">
+                                    <i class="bi bi-search text-white"></i>
                                 </a>
                             </td>
                         </tr>
-                    <?php   
-                            $jumlah++;
-                            }
-                        }
-                    ?>
+            <?php   
+                    $jumlah++;
+                    }
+                }
+            ?>
                 </tbody>
-            </table>
+             </table>
         </div>
     </div>
+    </div>
+
+
 
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../fontawesome/js/all.min.js"></script>

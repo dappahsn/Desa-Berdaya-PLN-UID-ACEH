@@ -24,33 +24,92 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="img/Logo-PLN-Peduli-Kecil.png" rel="icon">
     <link href="img/Logo-PLN-Peduli.png" rel="apple-touch-icon">
     <title>Produk Detail</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-</head>
+    <style>
+        body {
+            font-family: Roboto, sans-serif;
+        }
 
-<style>
-    form div {
-        margin-bottom: 10px;
-    }
-</style>
+        h2 {
+            color: #043873;
+            font-size: 40px;
+            font-weight: 900;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+        }
+
+        .btn-primary {
+            background-color: #043873;
+            border-color: #043873;
+        }
+
+        .btn-primary:hover {
+            background-color: #032f5e;
+            border-color: #032f5e;
+        }
+
+        .btn-danger {
+            padding: 0.5rem 1.5rem;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-section {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
 <body>
 <?php require "navbar.php"; ?>
 
 <div style="padding-top:5rem;" class="container mt-5">
-    <h2 style="color: #043873; font-size: 40px; font-family: Roboto; font-weight: 900;">Detail Produk</h2>
+    <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                    <a href="../adminpanel/" class="no-decoration text-muted">
+                        <i class="bi bi-house-door-fill"></i> Home
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    <a href="../adminpanel/produk.php" class="no-decoration text-muted">
+                        <i class="bi bi-box-seam-fill"></i> Produk
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    <span class="text-muted">
+                        <i class=""></i> Detail Produk
+                    </span>
+                </li>
+            </ol>
+        </nav>
+    <h3 style="width: 100%; color: #043873; font-size: 40px; font-family: Roboto; font-weight: 900; line-height: 41px; word-wrap: break-word;">Tambah Produk</h3>
 
     <div class="col-12 col-md-6 mb-5">
         <form action="" method="post" enctype="multipart/form-data">
-            <div>
-                <label for="nama">Nama</label>
+            <div class="form-section">
+                <label for="nama" class="form-label">Nama</label>
                 <input type="text" id="nama" name="nama" value="<?php echo $data['nama'] ?>" class="form-control" required>
             </div>
-            <div>
-                <label for="kategori">Kategori</label>
+            <div class="form-section">
+                <label for="kategori" class="form-label">Kategori</label>
                 <select name="kategori" id="kategori" class="form-control" required>
                     <option value="<?php echo $data['kategori_id']; ?>"><?php echo $data['nama_kategori']; ?></option>
                     <?php while($dataKategori=mysqli_fetch_array($queryKategori)){ ?>
@@ -58,28 +117,28 @@
                     <?php } ?>
                 </select>
             </div>
-            <div>
-                <label for="harga">Harga</label>
+            <div class="form-section">
+                <label for="harga" class="form-label">Harga</label>
                 <input type="number" class="form-control" value="<?php echo $data['harga']; ?>" name="harga" required>
             </div>
-            <div>
-                <label for="nomor_telepon">Nomor Telepon</label>
+            <div class="form-section">
+                <label for="nomor_telepon" class="form-label">Nomor Telepon</label>
                 <input type="text" class="form-control" value="<?php echo $data['nomor_telepon']; ?>" name="nomor_telepon" required>
             </div>
-            <div>
-                <label for="currentFoto">Foto Produk Sekarang</label><br>
-                <img src="../image/<?php echo $data['foto'] ?>" alt="" width="300px">
+            <div class="form-section">
+                <label for="currentFoto" class="form-label">Foto Produk Sekarang</label><br>
+                <img src="../image/<?php echo $data['foto'] ?>" alt="" class="product-image">
             </div>
-            <div>
-                <label for="foto">Foto</label>
+            <div class="form-section">
+                <label for="foto" class="form-label">Foto Baru</label>
                 <input type="file" name="foto" id="foto" class="form-control">
             </div>
-            <div>
-                <label for="detail">Detail</label>
-                <textarea name="detail" id="detail" cols="30" rows="10" class="form-control"><?php echo $data['detail']; ?></textarea>
+            <div class="form-section">
+                <label for="detail" class="form-label">Detail</label>
+                <textarea name="detail" id="detail" cols="30" rows="5" class="form-control"><?php echo $data['detail']; ?></textarea>
             </div>
-            <div>
-                <label for="ketersediaan_stok">Ketersediaan Stok</label>
+            <div class="form-section">
+                <label for="ketersediaan_stok" class="form-label">Ketersediaan Stok</label>
                 <select name="ketersediaan_stok" id="ketersediaan_stok" class="form-control">
                     <option value="<?php echo $data['ketersediaan_stok'] ?>"><?php echo $data['ketersediaan_stok'] ?></option>
                     <option value="<?php echo $data['ketersediaan_stok'] == 'tersedia' ? 'habis' : 'tersedia'; ?>">
@@ -87,13 +146,17 @@
                     </option>
                 </select>
             </div>
-            <div class="d-flex justify-content-between">
-                <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
-                <button type="submit" class="btn btn-danger" name="hapus">Hapus</button>
+            <div class="d-flex justify-content-between mt-4">
+                <button style="background-color: #032f5e; color: #ffffff;" type="submit" class="btn btn-edit px-4 py-2" name="simpan">
+                    <i class="bi bi-pencil-square me-1"></i> Simpan
+                </button>
+                <button type="submit" class="btn btn-danger px-4 py-2" name="hapus">
+                    <i class="bi bi-trash-fill me-1"></i> Hapus
+                </button>
             </div>
         </form>
 
-        <?php
+                <?php
             if(isset($_POST['simpan'])){
                 $nama = htmlspecialchars($_POST['nama']);
                 $kategori = htmlspecialchars($_POST['kategori']);

@@ -17,9 +17,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="img/Logo-PLN-Peduli-Kecil.png" rel="icon">
     <link href="img/Logo-PLN-Peduli.png" rel="apple-touch-icon">
-    <title>Beranda</title>
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css">
+    <title>Admin | Desa Berdaya PLN UID Aceh</title>
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
 
 </head>
 
@@ -43,7 +43,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">
-                    <i class="fas fa-home"></i> Home
+                    <i class="bi bi-house-door-fill"></i> Home
                 </li>
             </ol>
         </nav>
@@ -54,13 +54,13 @@
     </div>
    
         
-        <div style="font-family: Roboto; word-wrap: break-word;" class="container mt-5">
+        <div style="font-family: Roboto; word-wrap: break-word;" class="container mt-5 align-items-center">
             <div class="row">
                 <div  class="col-lg-4 col-md-6 col-12 mb-4">
                     <div style="box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25)" class="summary-kategori p-3">
                         <div  class="row">
                             <div class="col-6">
-                                <i style="color:#043873;" class="fas fa-align-justify fa-7x"></i>
+                              <i style="color:#043873; font-size: 6rem;" class="bi bi-tags-fill"></i>
                             </div>
                             <div class="col-6 text-#043873">
                                 <h3 style="color:#043873;font-weight:700; line-height: 41px" class="fs-2">Kategori</h3>
@@ -75,7 +75,7 @@
                     <div style="box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25)" class="summary-kategori p-3">
                         <div  class="row">
                             <div class="col-6">
-                                <i style="color:#043873;" class="fas fa-box fa-7x"></i>
+                             <i style="color:#043873; font-size: 6rem;" class="bi bi-box-seam-fill"></i>
                             </div>
                             <div class="col-6 text-#043873">
                                 <h3 style="color:#043873; font-weight:700; line-height: 41px;" class="fs-2">Produk</h3>
@@ -89,7 +89,7 @@
         </div>
 
         </div>
-    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../fontawesome/js/all.min.js"></script>
 </body>
 </html>
