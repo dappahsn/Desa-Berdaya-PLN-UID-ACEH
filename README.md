@@ -163,7 +163,7 @@ This project is actively maintained and developed by:
   - Computer Engineering Student, Universitas Syiah Kuala
   - Role: Fullstack Developer / Lead Engineer
   - GitHub: [@dappahsn](https://github.com/dappahsn)
-  - LinkedIn: [Muhammad Daffa Husen](https://www.linkedin.com/in/muhammad-daffa-husen/) *(Update with your actual LinkedIn if desired)*
+  - LinkedIn: [Muhammad Daffa Husen](https://www.linkedin.com/in/muhammaddaffahusen/) *(Update with your actual LinkedIn if desired)*
 
 ## 📄 License
 This software is distributed under the **MIT License**. See the `LICENSE` file in the root directory for more detailed information regarding terms of use and distribution.
