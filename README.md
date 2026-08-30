@@ -6,8 +6,6 @@
   </div>
   
   <br />
-  
-  <img src="img/Peta-Desa-Berdaya.png" alt="Desa Berdaya PLN UID Aceh Map" height="150">
 
   <h1>Desa Berdaya PLN UID Aceh</h1>
   
